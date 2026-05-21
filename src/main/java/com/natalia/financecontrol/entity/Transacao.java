@@ -1,6 +1,5 @@
 package com.natalia.financecontrol.entity;
 
-import com.natalia.financecontrol.enums.TipoTransacao;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +9,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
+@Table(name= "categorias")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +17,7 @@ public class Transacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private TipoTransacao tipo;
+    private com.natalia.financecontrol.entity.TipoTransacao tipo;
     private BigDecimal valor;
     private String descricao;
     private LocalDate data;

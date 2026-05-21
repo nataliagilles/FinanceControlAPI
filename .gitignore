@@ -1,4 +1,15 @@
-src/main/resources/application.yml
-src/main/resources/application.yml
-.idea/
-target/
+# Senhas e configurações locais
+application.properties
+application.yml
+*.properties
+*.yml
+
+# Pastas ignoradas
+/target/
+/.idea/
+*.iml
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
