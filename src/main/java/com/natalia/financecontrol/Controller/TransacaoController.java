@@ -21,32 +21,30 @@ public class TransacaoController {
         this.transacaoService = transacaoService;
     }
 
-    // Criar nova transação
+    // Cria nova transação
     @PostMapping
     public ResponseEntity<TransacaoResponseDTO> criar(@Valid @RequestBody TransacaoRequestDTO dto) {
         TransacaoResponseDTO response = transacaoService.criar(dto);
         return ResponseEntity.ok(response);
     }
 
-    // Listar todas
     @GetMapping
     public ResponseEntity<List<TransacaoResponseDTO>> listarTodas() {
         return ResponseEntity.ok(transacaoService.listarTodas());
     }
 
-    // Buscar por ID
     @GetMapping("/{id}")
     public ResponseEntity<TransacaoResponseDTO> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(transacaoService.buscarPorId(id));
     }
 
-    // Buscar por tipo (RECEITA ou DESPESA)
+    // por tipo (RECEITA ou DESPESA)
     @GetMapping("/tipo/{tipo}")
     public ResponseEntity<List<TransacaoResponseDTO>> buscarPorTipo(@PathVariable TipoTransacao tipo) {
         return ResponseEntity.ok(transacaoService.buscarPorTipo(tipo));
     }
 
-    // Buscar por período
+    // or período
     @GetMapping("/periodo")
     public ResponseEntity<List<TransacaoResponseDTO>> buscarPorPeriodo(
             @RequestParam LocalDate inicio,

@@ -9,20 +9,26 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name= "categorias")
+@Table(name = "transacoes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Transacao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private com.natalia.financecontrol.entity.TipoTransacao tipo;
+
+    @Enumerated(EnumType.STRING)
+    private TipoTransacao tipo;
+
     private BigDecimal valor;
+
     private String descricao;
+
     private LocalDate data;
 
     @ManyToOne
-    @JoinColumn(name = "categoria_id")   // Chave estrangeira
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 }

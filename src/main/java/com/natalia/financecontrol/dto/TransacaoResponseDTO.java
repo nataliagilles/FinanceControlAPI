@@ -13,7 +13,6 @@ public class TransacaoResponseDTO {
     private LocalDate data;
     private String categoriaNome;
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
